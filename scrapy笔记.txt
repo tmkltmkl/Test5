@@ -1,0 +1,43 @@
+scrapy大站：
+https://scrapy-chs.readthedocs.io/zh_CN/0.24/index.html【内含：https://scrapyd.readthedocs.io/en/stable/index.html】【内含：https://github.com/scrapy/quotesbot】
+http://www.scrapyd.cn
+https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html
+
+allowed_domains规定了爬取的范围，如果不希望爬取外联网站，可使用该可选项。
+
+python yield挺复杂的 https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/
+https://www.cnblogs.com/maoxiaolv/p/6425875.html
+
+yield了的结果 可以在crapy crawl命令后加后缀-o **.json生成相应文件，当然也可以在pase中使用文件操作，但简单情况下-o方式简单粗暴
+
+python使用迭代器不会消耗很多内存，而使用普通for循环会给每个变量存一份内存中
+
+a和a+、w和w+、r和r+ https://zhidao.baidu.com/question/274224277.html
+
+在回调函数内，您可以使用 选择器(Selectors) (您也可以使用BeautifulSoup, lxml 或者您想用的任何解析器) 来分析网页内容，并根据分析的数据生成item。最后，由spider返回的item将被存到数据库(由某些 Item Pipeline 处理)或使用 Feed exports 存入到文件中。
+
+Spider参数：添加-a可传参数
+scrapy crawl myspider -a category=electronics
+Spider参数也可以通过Scrapyd的 schedule.json API来传递
+
+Spider可以继承，系统也提供了多套Spider供使用：
+scrapy.Spider、CrawlSpider、XMLFeedSpider等等
+CrawlSpider：爬取一般网站常用的spider。
+
+scrapy命令举例：
+scrapy <command> -h（如果进入项目根目录运行该命令会显示项目命令)
+
+创建项目：scrapy startproject myproject
+进入项目目录后创建蜘蛛：scrapy genspider mydomain mydomain.com
+进行爬取$ scrapy crawl myspider
+浏览器以spider获取到的形式打开url$ scrapy view [url]
+语法: scrapy shell [url可为空]
+*语法: scrapy parse <url> [options]：检查spier输出的最基本方法是使用 parse 命令
+open_in_browser: 用Scrapy获取到的response来打开浏览器，并且调整 base tag 使得图片及样式(style)能正常显示。
+
+如果要定位的元素，不符合上面的特症，元素属性要么是动态的，要么就是不能区分这个元素的，还有就是属性值中间有空格的情况，都无法定位。所以从此元素开始，向他的上一层查找。
+
+当遇到了一个符合条件的元素时，对其写Xpath，然后在Selenium IDE中验证是否能定位到该元素。
+
+使用scrapy爬虫框架将数据保存Mysql数据库中还不会
+
